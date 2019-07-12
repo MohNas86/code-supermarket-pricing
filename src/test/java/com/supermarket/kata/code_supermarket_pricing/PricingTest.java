@@ -24,11 +24,33 @@ public class PricingTest {
 	}
 
 	@Test
-	public void getPrice() throws Exception {
+	public void getPriceTest() throws Exception {
 		assertEquals("a product costs 0.65$", 0.65f, Pricing.getPrice(unitPrice, 1), Double.MIN_VALUE);
 
 	}
 
-	
+	@Test
+	public void getReductionPriceTest() throws Exception {
+
+		assertEquals("Five units costs 2 Dollars: 1 Dollar (threeForOne discount) + 1 Dollar ( 2 units) ", 2f,
+				Pricing.getReductionPrice(new UnitPrice(0.5f), 5, threeForOne), Double.MIN_VALUE);
+		assertEquals("Three units costs 1 Dollar: threeForOne discount selected", 1f,
+				Pricing.getReductionPrice(new UnitPrice(0.5f), 3, threeForOne), Double.MIN_VALUE);
+		assertEquals("Five units costs 1.5 Dollars: fiveForOneAndHalf discount selected", 1.5f,
+				Pricing.getReductionPrice(new UnitPrice(0.5f), 5, fiveForOneAndHalf), Double.MIN_VALUE);
+
+	}
+
+	@Test
+	public void getReductionsPriceTest() throws Exception {
+
+		assertEquals("Five units costs 2 Dollars: 1 Dollar (threeForOne discount) + 1 Dollar ( 2 units) ", 2f,
+				Pricing.getReductionsPrice(new UnitPrice(0.5f), 5, discounts), Double.MIN_VALUE);
+		assertEquals("Three units costs 1 Dollar: threeForOne discount selected", 1f,
+				Pricing.getReductionsPrice(new UnitPrice(0.5f), 3, discounts), Double.MIN_VALUE);
+		assertEquals("Five units costs 1.5 Dollars: fiveForOneAndHalf discount selected", 1.5f,
+				Pricing.getReductionsPrice(new UnitPrice(0.5f), 5, discounts), Double.MIN_VALUE);
+
+	}
 
 }
