@@ -44,11 +44,11 @@ public class PricingTest {
 	@Test
 	public void getReductionsPriceTest() throws Exception {
 
-		assertEquals("Five units costs 2 Dollars: 1 Dollar (threeForOne discount) + 1 Dollar ( 2 units) ", 2f,
+		assertEquals("Five units costs 2 Dollars: 1 Dollar (threeForOne discount) + 1 Dollar ( 2 units) ", 3.5f,
 				Pricing.getReductionsPrice(new UnitPrice(0.5f), 5, discounts), Double.MIN_VALUE);
-		assertEquals("Three units costs 1 Dollar: threeForOne discount selected", 1f,
+		assertEquals("Three units costs 1 Dollar: threeForOne discount selected", 2.5f,
 				Pricing.getReductionsPrice(new UnitPrice(0.5f), 3, discounts), Double.MIN_VALUE);
-		assertEquals("Five units costs 1.5 Dollars: fiveForOneAndHalf discount selected", 1.5f,
+		assertEquals("Five units costs 1.5 Dollars: fiveForOneAndHalf discount selected", 3.5f,
 				Pricing.getReductionsPrice(new UnitPrice(0.5f), 5, discounts), Double.MIN_VALUE);
 
 	}
