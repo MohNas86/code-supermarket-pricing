@@ -1,17 +1,19 @@
 package com.supermarket.kata.code_supermarket_pricing;
 
+import java.math.BigDecimal;
+
 public class Discount {
 
-	private final Float price;
+	private final BigDecimal price;
 	private final Float Qte;
 
-	public Discount(Float price, Float qte) {
+	public Discount(BigDecimal price, Float qte) {
 		super();
 		this.price = price;
 		Qte = qte;
 	}
 
-	public Float getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 

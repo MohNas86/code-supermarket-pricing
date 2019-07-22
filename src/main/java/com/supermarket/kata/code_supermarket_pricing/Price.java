@@ -1,15 +1,17 @@
 package com.supermarket.kata.code_supermarket_pricing;
 
+import java.math.BigDecimal;
+
 public class Price {
 
-	private final Float amout;
+	private final BigDecimal amout;
 
-	public Price(Float amout) {
+	public Price(BigDecimal amout) {
 		super();
 		this.amout = amout;
 	}
 
-	public Float getAmout() {
+	public BigDecimal getAmout() {
 		return amout;
 	}
 
