@@ -32,10 +32,9 @@ public class Pricing {
 	public static BigDecimal getReductionsPrice(UnitPrice price, Integer qte, Collection<Discount> discounts) {
 
 		BigDecimal sum = BigDecimal.ZERO;
-		for (Discount discount : discounts) {
 
-			sum = sum.add(getReductionPrice(price, qte, discount));
-		}
+		sum = discounts.stream().map(discount -> getReductionPrice(price, qte, discount)).reduce(BigDecimal.ZERO,
+				BigDecimal::add);
 
 		return sum;
 
